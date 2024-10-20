@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Issue{% endblock %}
+
+{% block content %}
+<h2>Create an Issue</h2>
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="Issue Title" required>
+    <textarea name="description" placeholder="Description" required></textarea>
+    <button type="submit">Create Issue</button>
+</form>
+<a href="{% url 'repository_detail' repo_id %}">Back to Repository</a>
+{% endblock %}
