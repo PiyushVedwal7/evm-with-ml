@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Repositories{% endblock %}
+
+{% block content %}
+<h2>Your Repositories</h2>
+<a href="{% url 'create_repository' %}">Create New Repository</a>
+<ul>
+    {% for repository in repositories %}
+        <li><a href="{% url 'repository_detail' repository.id %}">{{ repository.name }}</a>: {{ repository.description }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
